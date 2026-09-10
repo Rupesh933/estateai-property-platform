@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Profile — EstateAI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <div class="page-head">
+          <span class="eyebrow">Your account</span>
+          <h1>Profile & preferences.</h1>
+          <p class="muted">
+            Keep your details and property preferences up to date.
+          </p>
+        </div>
+        <div class="profile-grid">
+          <aside>
+            <div class="panel profile-card">
+              <div class="profile-avatar">RK</div>
+              <h3 style="margin: 0">Rupesh Rana</h3>
+              <div class="small muted">Buyer · Member since 2026</div>
+              <div class="menu-card" style="margin-top: 18px">
+                <a class="active" href="#">Profile details</a
+                ><a href="saved-properties.html">Saved properties</a
+                ><a href="my-visits.html">My visits</a
+                ><a href="chat.html">AI assistant</a>
+              </div>
+            </div>
+          </aside>
+          <section class="panel">
+            <h3>Personal details</h3>
+            <form
+              class="form-grid"
+              data-demo
+              data-message="Profile updated successfully."
+            >
+              <div class="form-row">
+                <div class="field">
+                  <label>Full name</label><input value="Rupesh Rana" />
+                </div>
+                <div class="field">
+                  <label>Phone</label><input value="+91 93345 29892" />
+                </div>
+              </div>
+              <div class="field">
+                <label>Email</label
+                ><input value="rana@example.com" type="email" />
+              </div>
+              <div class="field">
+                <label>Preferred location</label
+                ><input value="Noida / Greater Noida" />
+              </div>
+              <h3 style="margin-top: 15px">Property preferences</h3>
+              <div class="form-row">
+                <div class="field">
+                  <label>Budget</label
+                  ><select>
+                    <option>₹80L – ₹1.5Cr</option>
+                    <option>₹1Cr – ₹2Cr</option>
+                    <option>₹2Cr+</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Property type</label
+                  ><select>
+                    <option>Apartment</option>
+                    <option>Villa</option>
+                    <option>Independent House</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label>Bedrooms</label
+                  ><select>
+                    <option>3+</option>
+                    <option>2+</option>
+                    <option>4+</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Primary goal</label
+                  ><select>
+                    <option>Self-use</option>
+                    <option>Investment</option>
+                    <option>Rental</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-dark">Save changes</button>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

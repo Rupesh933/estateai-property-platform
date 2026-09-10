@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Courtyard Residence — EstateAI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="detail-hero">
+      <div class="container">
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+            alt="Living room"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=85"
+            alt="Bedroom"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85"
+            alt="Exterior"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85"
+            alt="Kitchen"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=85"
+            alt="Terrace"
+          />
+        </div>
+        <div class="detail-layout">
+          <div>
+            <div class="detail-panel">
+              <span class="badge success">Verified listing</span>
+              <h1 class="detail-title">The Courtyard Residence</h1>
+              <div class="location">Sector 44, Noida · Central Noida</div>
+              <div class="detail-price">₹1.85 Cr</div>
+              <div class="detail-meta">
+                <span><strong>4</strong> beds</span
+                ><span><strong>4</strong> baths</span
+                ><span><strong>3,250</strong> sq ft</span
+                ><span><strong>2</strong> parking</span>
+              </div>
+              <p>
+                Warm modern interiors, generous daylight, and a private
+                courtyard define this four-bedroom residence in one of Noida’s
+                most convenient neighbourhoods.
+              </p>
+              <div class="feature-list">
+                <div class="feature">
+                  <span>Property type</span><strong>Villa</strong>
+                </div>
+                <div class="feature">
+                  <span>Built-up area</span><strong>3,250 sq ft</strong>
+                </div>
+                <div class="feature">
+                  <span>Year built</span><strong>2021</strong>
+                </div>
+                <div class="feature">
+                  <span>Facing</span><strong>East</strong>
+                </div>
+              </div>
+              <h3>Neighbourhood</h3>
+              <div class="map-placeholder">MAP PLACEHOLDER · SECTOR 44</div>
+            </div>
+          </div>
+          <aside style="display: grid; gap: 14px; align-content: start">
+            <div class="detail-panel">
+              <span class="eyebrow">Your next step</span>
+              <h3 style="font-size: 1.4rem">Interested in this home?</h3>
+              <div class="cta-stack">
+                <button
+                  class="btn btn-dark btn-block"
+                  onclick="EstateAI.toast('Visit request opened — demo only')"
+                >
+                  Schedule a Visit</button
+                ><a class="btn btn-outline btn-block" href="chat.html"
+                  >Ask AI about this property</a
+                ><button class="btn btn-light btn-block" data-save="1">
+                  ♡ Save property
+                </button>
+              </div>
+            </div>
+            <div class="ai-callout">
+              <span
+                class="badge"
+                style="background: rgba(255, 255, 255, 0.1); color: #e7d4b7"
+                >EstateAI insight</span
+              >
+              <p>
+                “This home is priced above nearby 4-BHK inventory, but the plot
+                size and courtyard make it a differentiated option.”
+              </p>
+              <a class="btn btn-gold" href="chat.html"
+                >Explore the trade-offs</a
+              >
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

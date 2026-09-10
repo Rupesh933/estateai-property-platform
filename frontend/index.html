@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EstateAI — Find a place you’ll love</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-kicker">
+              ✦ Intelligent property search, human feel
+            </div>
+            <h1>Find a home that fits your life.</h1>
+            <p>
+              Explore thoughtfully selected homes with EstateAI — and let an AI
+              assistant help you compare, calculate, and decide.
+            </p>
+            <form class="search-shell" action="properties.html">
+              <div class="search-field">
+                <label>Looking for</label
+                ><select name="type">
+                  <option>Any property</option>
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Independent House</option>
+                </select>
+              </div>
+              <div class="search-field">
+                <label>Location</label
+                ><input name="location" placeholder="Noida, Gurugram..." />
+              </div>
+              <div class="search-field">
+                <label>Budget</label
+                ><select name="budget">
+                  <option>Any budget</option>
+                  <option>Under ₹1 Cr</option>
+                  <option>₹1–2 Cr</option>
+                  <option>₹2–5 Cr</option>
+                </select>
+              </div>
+              <button class="search-submit">Search homes ↗</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Curated for you</span>
+              <h2>Featured homes with a point of view.</h2>
+            </div>
+            <a class="link-more" href="properties.html">View all homes →</a>
+          </div>
+          <div class="property-grid" data-featured></div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Made for decisions</span>
+              <h2>Your AI house-hunting co-pilot.</h2>
+              <p class="section-intro">
+                Ask natural questions instead of juggling tabs. Compare homes,
+                estimate a rough EMI, understand a neighbourhood, or find
+                alternatives that fit your brief.
+              </p>
+            </div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="ai-callout">
+              <span
+                class="badge"
+                style="background: rgba(255, 255, 255, 0.11); color: #e7d4b7"
+                >EstateAI Assistant</span
+              >
+              <h3 class="serif" style="font-size: 2rem; margin: 14px 0 6px">
+                “Show me 3-bedroom homes under ₹1.2 Cr with a short commute to
+                Sector 62.”
+              </h3>
+              <p>
+                EstateAI surfaces matching listings and explains the trade-offs
+                behind each one.
+              </p>
+              <a class="btn btn-gold" href="chat.html">Ask EstateAI</a>
+            </div>
+            <div class="panel">
+              <h3>A calmer search experience</h3>
+              <div class="stats">
+                <div class="stat">
+                  <strong>2,400+</strong><span>active listings</span>
+                </div>
+                <div class="stat">
+                  <strong>95%</strong><span>response coverage</span>
+                </div>
+                <div class="stat">
+                  <strong>24/7</strong><span>AI assistance</span>
+                </div>
+                <div class="stat">
+                  <strong>4.9/5</strong><span>buyer rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">How it works</span>
+              <h2>From curious to confident.</h2>
+            </div>
+          </div>
+          <div class="property-grid">
+            <div class="panel">
+              <span class="eyebrow">01</span>
+              <h3>Search naturally</h3>
+              <p class="muted">
+                Use filters or simply tell EstateAI what “home” means to you.
+              </p>
+            </div>
+            <div class="panel">
+              <span class="eyebrow">02</span>
+              <h3>Compare intelligently</h3>
+              <p class="muted">
+                Understand price, area, amenities, and trade-offs side by side.
+              </p>
+            </div>
+            <div class="panel">
+              <span class="eyebrow">03</span>
+              <h3>Visit with confidence</h3>
+              <p class="muted">
+                Schedule a visit and keep every upcoming appointment in one
+                place.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Browse properties — EstateAI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <div class="page-head">
+          <span class="eyebrow">Explore homes</span>
+          <h1>Properties that make sense.</h1>
+          <p class="muted">
+            Filter by what matters, then use EstateAI to understand the
+            trade-offs.
+          </p>
+        </div>
+        <div class="filters">
+          <div class="filter-item">
+            <label>Property type</label
+            ><select id="filterType">
+              <option value="">All types</option>
+              <option>Apartment</option>
+              <option>Villa</option>
+              <option>Independent House</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Location contains</label
+            ><input id="filterLocation" placeholder="Noida, Gurugram..." />
+          </div>
+          <div class="filter-item">
+            <label>Min budget</label
+            ><select id="filterMin">
+              <option value="0">Any</option>
+              <option value="8000000">₹80L</option>
+              <option value="10000000">₹1Cr</option>
+              <option value="15000000">₹1.5Cr</option>
+              <option value="20000000">₹2Cr</option>
+            </select>
+          </div>
+          <div class="filter-item">
+            <label>Max budget</label
+            ><select id="filterMax">
+              <option value="999999999">Any</option>
+              <option value="10000000">₹1Cr</option>
+              <option value="15000000">₹1.5Cr</option>
+              <option value="20000000">₹2Cr</option>
+              <option value="35000000">₹3.5Cr</option>
+            </select>
+          </div>
+          <button
+            class="btn btn-dark"
+            onclick="
+              document.querySelector('#filterType').value = '';
+              document.querySelector('#filterLocation').value = '';
+              document.querySelector('#filterMin').value = '0';
+              document.querySelector('#filterMax').value = '999999999';
+              document
+                .querySelectorAll('.filters select,.filters input')
+                .forEach((x) => x.dispatchEvent(new Event('input')));
+            "
+          >
+            Reset
+          </button>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+          "
+        >
+          <strong id="resultCount"></strong
+          ><span class="small muted">Sorted by relevance</span>
+        </div>
+        <div class="property-grid" data-properties></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

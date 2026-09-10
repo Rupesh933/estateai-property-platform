@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Agent dashboard — EstateAI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <div
+          class="page-head"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <div>
+            <span class="eyebrow">Agent workspace</span>
+            <h1>Good morning, Aakash.</h1>
+            <p class="muted">Here’s what needs your attention today.</p>
+          </div>
+          <button
+            class="btn btn-dark"
+            onclick="EstateAI.toast('New listing form opened')"
+          >
+            + Add listing
+          </button>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>18</strong><span>active listings</span>
+          </div>
+          <div class="stat"><strong>7</strong><span>visit requests</span></div>
+          <div class="stat"><strong>24</strong><span>new inquiries</span></div>
+          <div class="stat">
+            <strong>₹8.4Cr</strong><span>pipeline value</span>
+          </div>
+        </div>
+        <div class="dashboard-grid" style="margin-top: 22px">
+          <div class="panel">
+            <h3>Visit requests</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Buyer</th>
+                  <th>Property</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Neha Sharma</td>
+                  <td>The Courtyard Residence</td>
+                  <td>12 Sep · 11:30</td>
+                  <td><span class="badge confirmed">Confirmed</span></td>
+                </tr>
+                <tr>
+                  <td>Rahul Verma</td>
+                  <td>Skyline Verve</td>
+                  <td>13 Sep · 4:00</td>
+                  <td><span class="badge pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Priya Singh</td>
+                  <td>Olive Grove House</td>
+                  <td>14 Sep · 12:00</td>
+                  <td><span class="badge pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Anuj Khanna</td>
+                  <td>The Banyan Apartment</td>
+                  <td>5 Sep</td>
+                  <td><span class="badge completed">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <h3>Recent inquiries</h3>
+            <div style="display: grid; gap: 14px">
+              <div
+                style="
+                  padding-bottom: 13px;
+                  border-bottom: 1px solid var(--line);
+                "
+              >
+                <strong>Neha Sharma</strong>
+                <div class="small muted">“Is the courtyard private?”</div>
+                <div class="small" style="margin-top: 5px">
+                  The Courtyard Residence · 12 min ago
+                </div>
+              </div>
+              <div
+                style="
+                  padding-bottom: 13px;
+                  border-bottom: 1px solid var(--line);
+                "
+              >
+                <strong>Rahul Verma</strong>
+                <div class="small muted">
+                  “Is there any flexibility on price?”
+                </div>
+                <div class="small" style="margin-top: 5px">
+                  Skyline Verve · 1 hr ago
+                </div>
+              </div>
+              <div>
+                <strong>Priya Singh</strong>
+                <div class="small muted">“Can I visit this weekend?”</div>
+                <div class="small" style="margin-top: 5px">
+                  Olive Grove House · 3 hrs ago
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel" style="margin-top: 22px">
+          <h3>Your listings</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Listing</th>
+                <th>Price</th>
+                <th>Views</th>
+                <th>Leads</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The Courtyard Residence</td>
+                <td>₹1.85 Cr</td>
+                <td>2,410</td>
+                <td>31</td>
+                <td>
+                  <button
+                    class="btn btn-light"
+                    onclick="EstateAI.toast('Edit listing opened')"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Skyline Verve</td>
+                <td>₹1.12 Cr</td>
+                <td>1,840</td>
+                <td>18</td>
+                <td>
+                  <button
+                    class="btn btn-light"
+                    onclick="EstateAI.toast('Edit listing opened')"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Olive Grove House</td>
+                <td>₹2.45 Cr</td>
+                <td>990</td>
+                <td>9</td>
+                <td>
+                  <button
+                    class="btn btn-light"
+                    onclick="EstateAI.toast('Edit listing opened')"
+                  >
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

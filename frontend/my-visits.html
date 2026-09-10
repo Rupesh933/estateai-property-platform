@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My visits — EstateAI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container">
+        <div class="page-head">
+          <span class="eyebrow">Your schedule</span>
+          <h1>My property visits.</h1>
+          <p class="muted">
+            Upcoming walkthroughs and past visits, organised in one view.
+          </p>
+        </div>
+        <div class="list-row">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=82"
+            alt=""
+          />
+          <div>
+            <span class="badge confirmed">Confirmed</span>
+            <h3>The Courtyard Residence</h3>
+            <div class="muted">Sat, 12 Sep · 11:30 AM · Sector 44, Noida</div>
+            <div class="small" style="margin-top: 7px">
+              Agent: Aakash Mehta · +91 98XXXXXX81
+            </div>
+          </div>
+          <div class="list-actions">
+            <button
+              class="btn btn-outline"
+              onclick="EstateAI.toast('Reschedule flow opened')"
+            >
+              Reschedule
+            </button>
+          </div>
+        </div>
+        <div class="list-row">
+          <img
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=500&q=82"
+            alt=""
+          />
+          <div>
+            <span class="badge pending">Pending</span>
+            <h3>Skyline Verve</h3>
+            <div class="muted">Sun, 13 Sep · 4:00 PM · Sector 137, Noida</div>
+            <div class="small" style="margin-top: 7px">
+              Awaiting agent confirmation
+            </div>
+          </div>
+          <div class="list-actions">
+            <button
+              class="btn btn-outline"
+              onclick="EstateAI.toast('Visit details opened')"
+            >
+              Details
+            </button>
+          </div>
+        </div>
+        <div class="list-row">
+          <img
+            src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=500&q=82"
+            alt=""
+          />
+          <div>
+            <span class="badge completed">Completed</span>
+            <h3>The Banyan Apartment</h3>
+            <div class="muted">Sat, 5 Sep · Whitefield, Bengaluru</div>
+            <div class="small" style="margin-top: 7px">
+              Visited · Add a private note from your dashboard
+            </div>
+          </div>
+          <div class="list-actions">
+            <button
+              class="btn btn-outline"
+              onclick="EstateAI.toast('Thanks for your feedback')"
+            >
+              Rate visit
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <span class="brand-mark" style="background: #fff; color: #111827"
+                >EA</span
+              ><span style="color: #fff"
+                >Estate<span style="color: #d1a56d">AI</span></span
+              >
+            </div>
+            <p style="max-width: 320px; color: #aeb7c2">
+              A calmer, smarter way to find a place worth calling home.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <a href="properties.html">Browse homes</a
+            ><a href="saved-properties.html">Saved homes</a
+            ><a href="my-visits.html">My visits</a>
+          </div>
+          <div>
+            <h4>For agents</h4>
+            <a href="agent-dashboard.html">Agent dashboard</a
+            ><a href="register.html">Create agent account</a
+            ><a href="chat.html">AI assistant</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About EstateAI</a><a href="#">Trust & safety</a
+            ><a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EstateAI. Demo frontend template.</span
+          ><span>Privacy · Terms · Cookies</span>
+        </div>
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

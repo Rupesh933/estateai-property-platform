@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EstateAI Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">EA</span
+          ><span>Estate<span style="color: #b9684e">AI</span></span></a
+        >
+        <nav class="nav-links">
+          <a href="properties.html">Buy</a><a href="properties.html">Explore</a
+          ><a href="chat.html">AI Assistant</a>
+          <a href="saved-properties.html">Saved</a
+          ><a href="my-visits.html">My Visits</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="login.html">Sign in</a>
+          <a class="btn btn-dark" href="register.html">Get started</a>
+          <button class="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="chat-shell">
+      <aside class="chat-side">
+        <span class="eyebrow">EstateAI</span>
+        <h3>AI Assistant</h3>
+        <p class="small muted">
+          Ask about homes, areas, mortgage math, visits, or similar listings.
+        </p>
+        <div class="chat-history">
+          <button data-prompt="Show me 3-bedroom homes under ₹1.2 Cr in Noida">
+            🏠 Find 3-BHK homes</button
+          ><button
+            data-prompt="Calculate a rough EMI for ₹1.2 Cr with 20% down for 20 years"
+          >
+            ₹ Calculate rough EMI</button
+          ><button data-prompt="Suggest similar properties to Skyline Verve">
+            ⌂ Suggest similar homes</button
+          ><button
+            data-prompt="Which neighbourhood is best for a short commute to Sector 62?"
+          >
+            ↗ Compare neighbourhoods
+          </button>
+        </div>
+      </aside>
+      <section class="chat-main">
+        <div class="chat-top">
+          <div class="ai-avatar">EA</div>
+          <div>
+            <strong>EstateAI Assistant</strong>
+            <div class="small muted">
+              Usually replies in a few seconds · Demo
+            </div>
+          </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="bubble ai">
+            Hi! I’m EstateAI. Tell me what you’re looking for, or ask me to
+            estimate an EMI or compare homes.
+          </div>
+          <div class="bubble user">
+            I’m looking for a family home around ₹1.2 Cr.
+          </div>
+          <div class="bubble ai">
+            Great starting point. Do you prefer an apartment or independent
+            home, and which city or commute area should I prioritise?
+          </div>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <input
+            id="chatInput"
+            placeholder="Ask EstateAI anything about property..."
+            autocomplete="off"
+          /><button aria-label="Send">↗</button>
+        </form>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
