@@ -7,20 +7,36 @@ class PropertyImageSerializer(serializers.ModelSerializer):
         fields = ['id', 'image']
 
 class PropertyListSerializer(serializers.ModelSerializer):
-    """
-    Lightweight serializer for listing properties. It includes only essential fields to reduce payload size.
-    """
+
+    thumbnail = serializers.SerializerMethodField()
+
     class Meta:
         model = Property
-        fields = ['id', 'title', 'slug', 'property_type', 'listing_type', 'price', 'city', 'bedrooms', 'bathrooms', 'is_available']
+        fields = [
+            'id',
+            'title',
+            'slug',
+            'property_type',
+            'listing_type',
+            'price',
+            'city',
+            'bedrooms',
+            'bathrooms',
+            'is_available',
+            'thumbnail'
+        ]
 
     def get_thumbnail(self, obj):
         first_image = obj.images.first()
+
         if first_image:
             request = self.context.get('request')
+
             if request:
                 return request.build_absolute_uri(first_image.image.url)
+
             return first_image.image.url
+
         return None
 
 class PropertyDetailSerializer(serializers.ModelSerializer):
