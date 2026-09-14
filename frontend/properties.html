@@ -37,20 +37,28 @@
             trade-offs.
           </p>
         </div>
+
         <div class="filters">
+          <!-- ============ Filter by Property Type ============= -->
           <div class="filter-item">
-            <label>Property type</label
-            ><select id="filterType">
+            <label>Property type</label>
+            <select id="filterType">
               <option value="">All types</option>
-              <option>Apartment</option>
-              <option>Villa</option>
-              <option>Independent House</option>
+              <option value="apartment">Apartment</option>
+              <option value="villa">Villa</option>
+              <option value="house">House</option>
+              <option value="plot">Plot</option>
+              <option value="commercial">Commercial</option>
             </select>
           </div>
+
+          <!-- ============ Filter by Location -->
           <div class="filter-item">
-            <label>Location contains</label
-            ><input id="filterLocation" placeholder="Noida, Gurugram..." />
+            <label>Location contains</label>
+            <input id="filterLocation" placeholder="Noida, Gurugram..." />
           </div>
+
+          <!-- ============== Filter by Min Price =============== -->
           <div class="filter-item">
             <label>Min budget</label
             ><select id="filterMin">
@@ -61,6 +69,8 @@
               <option value="20000000">₹2Cr</option>
             </select>
           </div>
+
+          <!-- ============== Filter by Min Price =============== -->
           <div class="filter-item">
             <label>Max budget</label
             ><select id="filterMax">
@@ -97,11 +107,13 @@
           <strong id="resultCount"></strong
           ><span class="small muted">Sorted by relevance</span>
         </div>
+
         <div class="property-grid" data-properties></div>
+        
       </div>
     </main>
 
-<!-- ============== Footer ================= -->
+    <!-- ============== Footer ================= -->
     <footer class="footer">
       <div class="container">
         <div class="footer-grid">
