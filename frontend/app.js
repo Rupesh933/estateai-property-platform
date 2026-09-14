@@ -591,32 +591,31 @@ const loadPropertyDetail = async () => {
         );
 
 
-        const title =
-            document.querySelector("#detailTitle");
+        const title = document.querySelector("#detailTitle");
 
-        const location =
-            document.querySelector("#detailLocation");
+        const location = document.querySelector("#detailLocation");
 
-        const price =
-            document.querySelector("#detailPrice");
+        const price = document.querySelector("#detailPrice");
 
-        const description =
-            document.querySelector("#detailDescription");
+        const description = document.querySelector("#detailDescription");
 
-        const beds =
-            document.querySelector("#detailBeds");
+        const beds = document.querySelector("#detailBeds");
 
-        const baths =
-            document.querySelector("#detailBaths");
+        const baths = document.querySelector("#detailBaths");
 
-        const area =
-            document.querySelector("#detailArea");
+        const area = document.querySelector("#detailArea");
 
-        const type =
-            document.querySelector("#detailType");
+        const type = document.querySelector("#detailType");
 
-        const address =
-            document.querySelector("#detailAddress");
+        const address = document.querySelector("#detailAddress");
+
+        const parking = document.querySelector("#detailParking");
+
+        const yearBuilt = document.querySelector("#detailYearBuilt");
+
+        const facing = document.querySelector("#detailFacing");
+
+        const builtUpArea = document.querySelector("#detailBuiltUpArea");
 
 
         if (title) {
@@ -666,7 +665,24 @@ const loadPropertyDetail = async () => {
 
         if (address) {
             address.textContent =
-                property.address;
+                property.address || "Not specified";
+        }
+
+        if (parking) {
+          parking.textContent = property.parking_spaces || 0;
+        }
+
+        if (yearBuilt) {
+          yearBuilt.textContent = property.year_built || "N/A";
+        }
+
+        if (facing) {
+          facing.textContent = property.facing_direction ? property.facing_direction
+          .charAt(0).toUpperCase() + property.facing_direction.slice(1) : "Not specified";
+        }
+
+        if (builtUpArea) {
+          builtUpArea.textContent = property.built_up_area_sqft || "N/A";
         }
 
 

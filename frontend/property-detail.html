@@ -52,43 +52,54 @@
           />
         </div> -->
 
-        <div class="gallery" id="propertyGallery">
-
-        </div>
+<!-- ====================== Property Details Fields ====================== -->
+        <div class="gallery" id="propertyGallery"></div>
         <div class="detail-layout">
           <div>
             <div class="detail-panel">
               <span class="badge success">Verified listing</span>
               <!-- <h1 class="detail-title">The Courtyard Residence</h1> -->
-               <h1 class="detail-title" id="detailTitle"></h1>
+              <h1 class="detail-title" id="detailTitle"></h1>
               <!-- <div class="location">Sector 44, Noida · Central Noida</div> -->
-               <div class="location" id="detailLocation"></div>
+              <div class="location" id="detailLocation"></div>
               <!-- <div class="detail-price">₹1.85 Cr</div> -->
-               <div class="detail-price" id="detailPrice"></div>
+              <div class="detail-price" id="detailPrice"></div>
               <div class="detail-meta">
-                <span><strong>4</strong> beds</span
-                ><span><strong>4</strong> baths</span
-                ><span><strong>3,250</strong> sq ft</span
-                ><span><strong>2</strong> parking</span>
+                <span> <strong id="detailBeds">0</strong> beds </span>
+
+                <span> <strong id="detailBaths">0</strong> baths </span>
+
+                <span> <strong id="detailArea">0</strong> sq ft </span>
+
+                <span> <strong id="detailParking">0</strong> parking </span>
               </div>
-              <p>
-                Warm modern interiors, generous daylight, and a private
+              <p id="detailDescription">
+                <!-- Warm modern interiors, generous daylight, and a private
                 courtyard define this four-bedroom residence in one of Noida’s
-                most convenient neighbourhoods.
+                most convenient neighbourhoods. -->
               </p>
+<!-- ====================== End Property Details ====================== -->
+
+<!-- ================== Features Fields ======================= -->
               <div class="feature-list">
                 <div class="feature">
-                  <span>Property type</span><strong>Villa</strong>
+                  <span>Property type</span><strong id="detailType"></strong>
                 </div>
                 <div class="feature">
-                  <span>Built-up area</span><strong>3,250 sq ft</strong>
+                  <span>Built-up area</span><strong><span id="detailBuiltUpArea"></span>sq ft</strong>
                 </div>
                 <div class="feature">
-                  <span>Year built</span><strong>2021</strong>
+                  <span>Year built</span><strong id="detailYearBuilt"></strong>
                 </div>
                 <div class="feature">
-                  <span>Facing</span><strong>East</strong>
+                  <span>Facing</span><strong id="detailFacing"></strong>
                 </div>
+                <div class="feature">
+                  <span>Address</span>
+                  <strong id="detailAddress"></strong>
+                </div>
+              </div>
+<!-- ==================== End Features ===================== -->
               </div>
               <h3>Neighbourhood</h3>
               <div class="map-placeholder">MAP PLACEHOLDER · SECTOR 44</div>
@@ -168,6 +179,7 @@
         </div>
       </div>
     </footer>
+    <script src="js/api.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

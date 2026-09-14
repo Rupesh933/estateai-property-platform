@@ -49,10 +49,32 @@ class PropertyDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = [
-            'id', 'title', 'slug', 'description', 'property_type', 'listing_type',
-            'price', 'area_sqft', 'bedrooms', 'bathrooms',
-            'city', 'address', 'owner_username', 'images',
-            'is_available', 'created_at', 'updated_at'
+            'id',
+            'title',
+            'slug',
+            'description',
+            'property_type',
+            'listing_type',
+
+            'price',
+            'area_sqft',
+
+            'parking_spaces',
+            'bedrooms',
+            'bathrooms',
+
+            'facing_direction',
+            'year_built',
+
+            'city',
+            'address',
+
+            'owner_username',
+            'images',
+
+            'is_available',
+            'created_at',
+            'updated_at'
         ]
 
 class PropertyCreateUpdateSerializer(serializers.ModelSerializer):
@@ -62,9 +84,24 @@ class PropertyCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = [
-            "title", "description", "property_type", "listing_type",
-            "price", "area_sqft", "bedrooms", "bathrooms",
-            "city", "address", "is_available"
+            "title",
+            "description",
+            "property_type",
+            "listing_type",
+
+            "price",
+            "area_sqft",
+
+            "parking_spaces",
+            "bedrooms",
+            "bathrooms",
+
+            "facing_direction",
+            "year_built",
+
+            "city",
+            "address",
+            "is_available"
         ]
 
 
