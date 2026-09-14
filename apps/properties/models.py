@@ -18,6 +18,17 @@ class Property(models.Model):
         ('rent', 'For Rent'),
     ]
 
+    FACING_DIRECTION_CHOICES = [
+        ('north', 'North'),
+        ('south', 'South'),
+        ('east', 'East'),
+        ('west', 'West'),
+        ('northeast', 'Northeast'),
+        ('northwest', 'Northwest'),
+        ('southeast', 'Southeast'),
+        ('southwest', 'Southwest'),
+    ]
+
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, blank=True)
     description = models.TextField()
@@ -26,8 +37,13 @@ class Property(models.Model):
 
     price = models.DecimalField(max_digits=12, decimal_places=2)
     area_sqft = models.PositiveIntegerField()
+    parking_spaces = models.PositiveIntegerField(default=0)
+
     bedrooms = models.PositiveIntegerField(default=0)
     bathrooms = models.PositiveIntegerField(default=0)
+
+    facing_direction = models.CharField(max_length=70, choices=FACING_DIRECTION_CHOICES, default='north')
+    year_built = models.PositiveIntegerField(null=True, blank=True)
 
     city = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
