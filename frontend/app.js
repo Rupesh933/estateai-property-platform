@@ -104,7 +104,7 @@ const EstateAI = (() => {
   // Load properties from API
   // =========================
   
-  const props = [
+  let props = [
     {
       id: 1,
       title: "The Courtyard Residence",
@@ -179,14 +179,48 @@ const EstateAI = (() => {
     }
   ];
   
+  const fallbackImage =
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=82";
+
+  const formatPropertyType = type =>
+    String(type || "Property")
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+  const normalizeProperty = property => ({
+    id: property.id,
+    title: property.title || "Untitled property",
+    price: Number(property.price) || 0,
+    location: [property.address, property.city].filter(Boolean).join(", ") || "Location unavailable",
+    type: formatPropertyType(property.property_type),
+    beds: Number(property.bedrooms) || 0,
+    baths: Number(property.bathrooms) || 0,
+    area: property.area_sqft ? `${Number(property.area_sqft).toLocaleString()} sq ft` : "Area unavailable",
+    img: property.thumbnail || fallbackImage,
+    tag: property.listing_type === "rent" ? "For Rent" : "For Sale"
+  });
+
   const loadPropertiesFromAPI = async () => {
+    // api.js is intentionally only included on pages that need live listings.
+    if (typeof getProperties !== "function") return;
+
     try {
       const data = await getProperties();
+      const listings = Array.isArray(data) ? data : data.results;
 
-      console.log("Properties from API:", data);
+      if (!Array.isArray(listings)) {
+        throw new Error("The properties API returned an unexpected response.");
+      }
+
+      props = listings.map(normalizeProperty);
+
+      renderFeatured();
+      renderAll();
 
     } catch (error) {
-      console.error("Failed to load properties:", error);
+      // Keep the static listings visible when the API is not running.
+      console.error("Failed to load properties from the API:", error);
     }
   };
 
