@@ -73,3 +73,13 @@ async function getPropertyDetail(slug) {
         `/properties/${encodeURIComponent(slug)}/`
     );
 }
+
+async function loginUser(email, password) {
+    return apiRequest("/auth/login/", {
+        method: "POST",
+        body: JSON.stringify({
+            email: email,
+            password: password,
+        }),
+    });
+}
