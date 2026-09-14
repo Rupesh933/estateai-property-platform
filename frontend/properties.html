@@ -104,8 +104,15 @@
             margin-bottom: 15px;
           "
         >
-          <strong id="resultCount"></strong
-          ><span class="small muted">Sorted by relevance</span>
+          <strong id="resultCount"></strong>
+          <select id="sortBy">
+          <option value="">Sorted by relevance</option>
+          <option value="price">Price: Low to High</option>
+          <option value="-price">Price: High to Low</option>
+          <option value="-created_at">Newest</option>
+          <option value="area_sqft">Area: Small to Large</option>
+          <option value="-area_sqft">Area: Large to Small</option>
+      </select>
         </div>
 
         <div class="property-grid" data-properties></div>

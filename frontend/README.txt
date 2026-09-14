@@ -3,7 +3,7 @@
 Static, responsive real-estate UI demo with no backend required.
 
 Files:
-- index.html
+- index.html  --> Entry page
 - login.html
 - register.html
 - properties.html

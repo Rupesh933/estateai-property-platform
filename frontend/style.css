@@ -408,7 +408,7 @@ img {
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   transition: .26s;
-  position: relative
+  position: relative;
 }
 
 .property-card:hover {
