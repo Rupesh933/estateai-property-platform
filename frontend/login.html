@@ -34,33 +34,53 @@
         <p class="muted">
           Save homes, manage visits, and continue your search.
         </p>
-        <form
-          class="form-grid"
-          data-demo
-          data-message="Welcome back — demo login successful."
-        >
+
+       <form class="form-grid" id="loginForm">
           <div class="field">
-            <label>Email address</label
-            ><input type="email" placeholder="you@example.com" required />
+              <label>Email address</label>
+              <input
+                  id="loginEmail"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+              />
           </div>
+
           <div class="field">
-            <label>Password</label
-            ><input type="password" placeholder="••••••••" required />
+              <label>Password</label>
+              <input
+                  id="loginPassword"
+                  type="password"
+                  placeholder="••••••••"
+                  required
+              />
           </div>
+
           <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            "
+              style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+              "
           >
-            <label class="small"><input type="checkbox" /> Remember me</label
-            ><a class="small" style="color: var(--gold-dark)" href="#"
-              >Forgot password?</a
-            >
+              <label class="small">
+                  <input type="checkbox" />
+                  Remember me
+              </label>
+
+              <a
+                  class="small"
+                  style="color: var(--gold-dark)"
+                  href="#"
+              >
+                  Forgot password?
+              </a>
           </div>
-          <button class="btn btn-dark btn-block">Sign in</button>
-        </form>
+
+          <button type="submit" class="btn btn-dark btn-block">
+              Sign in
+          </button>
+      </form>
         <div style="text-align: center; margin-top: 20px; color: var(--muted)">
           New to EstateAI?
           <a
@@ -110,6 +130,8 @@
         </div>
       </div>
     </footer>
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -37,28 +37,28 @@
         </div>
         <form
           class="form-grid"
-          data-demo
-          data-message="Account created — demo registration complete."
+          id="registerForm"
         >
           <div class="form-row">
             <div class="field">
-              <label>First name</label><input placeholder="Rupesh" required />
+              <label>First name</label><input id="firstName" placeholder="Rupesh" required />
             </div>
             <div class="field">
-              <label>Last name</label><input placeholder="Rana" required />
+              <label>Last name</label><input id="lastName" placeholder="Rana" required />
             </div>
           </div>
           <div class="field">
             <label>Email address</label
-            ><input type="email" placeholder="you@example.com" required />
+            ><input id="registerEmail" type="email" placeholder="you@example.com" required />
           </div>
           <div class="field">
             <label>Mobile number</label
-            ><input placeholder="+91 98XXXXXX00" required />
+            ><input id="mobileNumber" placeholder="+91 98XXXXXX00" required />
           </div>
           <div class="field">
             <label>Create password</label
             ><input
+              id="registerPassword"
               type="password"
               placeholder="At least 8 characters"
               required
@@ -111,6 +111,8 @@
         </div>
       </div>
     </footer>
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

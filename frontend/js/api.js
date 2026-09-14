@@ -74,6 +74,14 @@ async function getPropertyDetail(slug) {
     );
 }
 
+async function registerUser(userData) {
+    return apiRequest("/auth/register/", {
+        method: "POST",
+        body: JSON.stringify(userData),
+    });
+}
+
+
 async function loginUser(email, password) {
     return apiRequest("/auth/login/", {
         method: "POST",
