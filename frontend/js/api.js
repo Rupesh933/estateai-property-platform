@@ -17,3 +17,7 @@ async function apiRequest(endpoint, options = {}) {
 
     return data;
 }
+
+async function getProperties() {
+    return await apiRequest("/properties/");
+}
