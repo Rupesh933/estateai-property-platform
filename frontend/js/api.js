@@ -18,6 +18,34 @@ async function apiRequest(endpoint, options = {}) {
     return data;
 }
 
-async function getProperties() {
-    return await apiRequest("/properties/");
+async function getProperties(filters = {}) {
+    const params = new URLSearchParams();
+
+    if (filters.property_type) {
+        params.append("property_type", filters.property_type);
+    }
+
+    if (filters.city) {
+        params.append("city", filters.city);
+    }
+
+    if (filters.min_price) {
+        params.append("min_price", filters.min_price);
+    }
+
+    if (filters.max_price) {
+        params.append("max_price", filters.max_price);
+    }
+
+    const queryString = params.toString();
+
+    const endpoint = queryString
+        ? `/properties/?${queryString}`
+        : "/properties/";
+
+    return await apiRequest(endpoint);
+}
+
+async function getProperty(slug) {
+    return await apiRequest(`/properties/${slug}/`);
 }
