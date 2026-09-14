@@ -103,6 +103,82 @@ const EstateAI = (() => {
   // =========================
   // Load properties from API
   // =========================
+  
+  const props = [
+    {
+      id: 1,
+      title: "The Courtyard Residence",
+      price: 18500000,
+      location: "Sector 44, Noida",
+      type: "Villa",
+      beds: 4,
+      baths: 4,
+      area: "3,250 sq ft",
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=82",
+      tag: "Featured"
+    },
+    {
+      id: 2,
+      title: "Skyline Verve",
+      price: 11200000,
+      location: "Sector 137, Noida",
+      type: "Apartment",
+      beds: 3,
+      baths: 3,
+      area: "1,980 sq ft",
+      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=82",
+      tag: "New"
+    },
+    {
+      id: 3,
+      title: "Olive Grove House",
+      price: 24500000,
+      location: "Golf Course Road, Gurugram",
+      type: "Villa",
+      beds: 5,
+      baths: 5,
+      area: "4,100 sq ft",
+      img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=82",
+      tag: "Premium"
+    },
+    {
+      id: 4,
+      title: "Mansion 17",
+      price: 32500000,
+      location: "Jubilee Hills, Hyderabad",
+      type: "Independent House",
+      beds: 5,
+      baths: 6,
+      area: "5,200 sq ft",
+      img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1000&q=82",
+      tag: "Hot"
+    },
+    {
+      id: 5,
+      title: "The Banyan Apartment",
+      price: 8600000,
+      location: "Whitefield, Bengaluru",
+      type: "Apartment",
+      beds: 2,
+      baths: 2,
+      area: "1,420 sq ft",
+      img: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1000&q=82",
+      tag: "Value"
+    },
+    {
+      id: 6,
+      title: "Terracotta Villa",
+      price: 19800000,
+      location: "Panchshil Nagar, Pune",
+      type: "Villa",
+      beds: 4,
+      baths: 4,
+      area: "2,980 sq ft",
+      img: "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1000&q=82",
+      tag: "Featured"
+    }
+  ];
+  
   const loadPropertiesFromAPI = async () => {
     try {
       const data = await getProperties();
