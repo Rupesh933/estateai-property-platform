@@ -1,11 +1,19 @@
 const API_BASE_URL = "http://127.0.0.1:8000/api";
 
-async function getProperties() {
-    const response = await fetch(`${API_BASE_URL}/properties/`);
+async function apiRequest(endpoint, options = {}) {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        headers: {
+            "Content-Type": "application/json",
+            ...(options.headers || {})
+        },
+        ...options
+    });
+
+    const data = await response.json();
 
     if (!response.ok) {
-        throw new Error("Failed to fetch properties");
+        throw new Error(data.detail || "Something went wrong");
     }
 
-    return await response.json();
+    return data;
 }
