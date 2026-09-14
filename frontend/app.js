@@ -538,12 +538,45 @@ const loadPropertyDetail = async () => {
 
     if (!slug) {
 
-        console.error(
-            "Property slug not found in URL"
-        );
+    const staticDetail = {
+      title:
+        document.querySelector(".detail-title")?.textContent.trim(),
+      location:
+        document.querySelector(".detail-layout .location")?.textContent.trim(),
+      price:
+        document.querySelector(".detail-price")?.textContent.trim(),
+    };
+
+    console.log(
+      "Property detail:",
+      staticDetail
+    );
 
         return;
     }
+
+      if (typeof getPropertyDetail !== "function") {
+
+        console.warn(
+          "Property detail API is unavailable; using static page details."
+        );
+
+        const staticDetail = {
+          title:
+            document.querySelector(".detail-title")?.textContent.trim(),
+          location:
+            document.querySelector(".detail-layout .location")?.textContent.trim(),
+          price:
+            document.querySelector(".detail-price")?.textContent.trim(),
+        };
+
+        console.log(
+          "Property detail:",
+          staticDetail
+        );
+
+        return;
+      }
 
 
     try {
@@ -662,9 +695,8 @@ document.addEventListener(
 
 
         if (
-            document.querySelector(
-                "#detailTitle"
-            )
+          document.querySelector("#detailTitle") ||
+          document.querySelector(".detail-title")
         ) {
             loadPropertyDetail();
         }
@@ -688,7 +720,4 @@ document.addEventListener(
     money,
 
   };
-
-
-
 })();
