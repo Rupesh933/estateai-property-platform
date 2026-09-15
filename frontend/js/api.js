@@ -6,14 +6,24 @@ async function apiRequest(endpoint, options = {}) {
     const accessToken = localStorage.getItem("access_token");
 
     const headers = {
-        "Content-Type": "application/json",
         ...(options.headers || {}),
     };
 
 
+    // Agar body FormData nahi hai,
+    // tab JSON content type use hoga.
+    if (!(options.body instanceof FormData)) {
+
+        headers["Content-Type"] = "application/json";
+
+    }
+
+
     // Login ke baad access token automatically send hoga
     if (accessToken) {
+
         headers.Authorization = `Bearer ${accessToken}`;
+
     }
 
 
@@ -29,23 +39,31 @@ async function apiRequest(endpoint, options = {}) {
     let data = null;
 
     try {
+
         data = await response.json();
+
     } catch (error) {
+
         data = null;
+
     }
 
 
     if (!response.ok) {
+
         throw new Error(
             data?.detail ||
             data?.error ||
             "API request failed"
         );
+
     }
 
 
     return data;
+
 }
+
 
 
 async function getProperties(filters = {}) {
@@ -120,15 +138,6 @@ async function getCurrentUser() {
 }
 
 
-// Current user ka profile update karega
-async function updateCurrentUser(userData) {
-
-    return apiRequest("/auth/me/", {
-        method: "PATCH",
-        body: JSON.stringify(userData),
-    });
-
-}
 
 async function getCurrentUser() {
     return apiRequest("/auth/profile/");
