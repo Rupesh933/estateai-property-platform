@@ -129,3 +129,7 @@ async function updateCurrentUser(userData) {
     });
 
 }
+
+async function getCurrentUser() {
+    return apiRequest("/auth/profile/");
+}
