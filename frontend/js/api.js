@@ -130,14 +130,6 @@ async function loginUser(email, password) {
 }
 
 
-// Current logged-in user ka data fetch karega
-async function getCurrentUser() {
-
-    return apiRequest("/auth/me/");
-
-}
-
-
 
 async function getCurrentUser() {
     return apiRequest("/auth/profile/");
