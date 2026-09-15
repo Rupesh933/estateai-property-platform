@@ -3,10 +3,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const slug = urlParams.get("slug");
 
+    // ========================================
+    // Check slug
+    // ========================================
+
     if (!slug) {
         console.error("Property slug is missing.");
+
+        const titleElement = document.getElementById("detailTitle");
+
+        if (titleElement) {
+            titleElement.textContent = "Property not found";
+        }
+
         return;
     }
+
+    // ========================================
+    // DOM Elements
+    // ========================================
 
     const titleElement = document.getElementById("detailTitle");
     const locationElement = document.getElementById("detailLocation");
@@ -17,91 +32,145 @@ document.addEventListener("DOMContentLoaded", async () => {
     const areaElement = document.getElementById("detailArea");
     const parkingElement = document.getElementById("detailParking");
 
-    const descriptionElement = document.getElementById("detailDescription");
+    const descriptionElement =
+        document.getElementById("detailDescription");
 
-    const typeElement = document.getElementById("detailType");
-    const builtUpAreaElement = document.getElementById("detailBuiltUpArea");
-    const yearBuiltElement = document.getElementById("detailYearBuilt");
-    const facingElement = document.getElementById("detailFacing");
-    const addressElement = document.getElementById("detailAddress");
+    const typeElement =
+        document.getElementById("detailType");
 
-    const galleryElement = document.getElementById("propertyGallery");
+    const builtUpAreaElement =
+        document.getElementById("detailBuiltUpArea");
+
+    const yearBuiltElement =
+        document.getElementById("detailYearBuilt");
+
+    const facingElement =
+        document.getElementById("detailFacing");
+
+    const addressElement =
+        document.getElementById("detailAddress");
+
+    const galleryElement =
+        document.getElementById("propertyGallery");
+
+    // ========================================
+    // Fetch Property
+    // ========================================
 
     try {
         const property = await getPropertyDetail(slug);
 
         console.log("Property detail:", property);
 
-        // =========================
-        // Property basic details
-        // =========================
+        // ========================================
+        // Basic Property Information
+        // ========================================
 
         if (titleElement) {
-            titleElement.textContent = property.title || "Untitled Property";
+            titleElement.textContent =
+                property.title || "Untitled Property";
         }
 
         if (locationElement) {
-            locationElement.textContent = property.address
-                ? `${property.address}, ${property.city || ""}`
-                : property.city || "";
+            const city = property.city || "";
+            const address = property.address || "";
+
+            if (address && city) {
+                locationElement.textContent =
+                    `${address}, ${city}`;
+            } else {
+                locationElement.textContent =
+                    address || city || "Location not available";
+            }
         }
 
         if (priceElement) {
-            priceElement.textContent = formatPrice(property.price);
+            priceElement.textContent =
+                formatPrice(property.price);
         }
 
+        // ========================================
+        // Property Meta
+        // ========================================
+
         if (bedsElement) {
-            bedsElement.textContent = property.bedrooms ?? 0;
+            bedsElement.textContent =
+                property.bedrooms ?? 0;
         }
 
         if (bathsElement) {
-            bathsElement.textContent = property.bathrooms ?? 0;
+            bathsElement.textContent =
+                property.bathrooms ?? 0;
         }
 
         if (areaElement) {
-            areaElement.textContent = property.area_sqft ?? 0;
+            areaElement.textContent =
+                property.area_sqft ?? 0;
         }
 
         if (parkingElement) {
-            parkingElement.textContent = property.parking_spaces ?? 0;
+            parkingElement.textContent =
+                property.parking_spaces ?? 0;
         }
+
+        // ========================================
+        // Description
+        // ========================================
 
         if (descriptionElement) {
-            descriptionElement.textContent = property.description || "No description available.";
+            descriptionElement.textContent =
+                property.description ||
+                "No description available.";
         }
 
-        // =========================
+        // ========================================
         // Features
-        // =========================
+        // ========================================
 
         if (typeElement) {
-            typeElement.textContent = formatPropertyType(property.property_type);
+            typeElement.textContent =
+                formatPropertyType(
+                    property.property_type
+                );
         }
 
         if (builtUpAreaElement) {
-            builtUpAreaElement.textContent = property.area_sqft ?? 0;
+            builtUpAreaElement.textContent =
+                property.area_sqft ?? 0;
         }
 
         if (yearBuiltElement) {
-            yearBuiltElement.textContent = property.year_built || "N/A";
+            yearBuiltElement.textContent =
+                property.year_built || "N/A";
         }
 
         if (facingElement) {
-            facingElement.textContent = formatFacingDirection(
-                property.facing_direction
-            );
+            facingElement.textContent =
+                formatFacingDirection(
+                    property.facing_direction
+                );
         }
 
         if (addressElement) {
-            addressElement.textContent = property.address || "N/A";
+            addressElement.textContent =
+                property.address || "N/A";
         }
 
-        // =========================
+        // ========================================
         // Property Images
-        // =========================
+        // ========================================
+
+        const images = Array.isArray(property.images)
+            ? property.images
+            : [];
+
+        console.log(
+            "Total property images:",
+            images.length
+        );
 
         renderPropertyImages(
-            property.images || [],
+            images,
             galleryElement
         );
 
@@ -120,6 +189,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             descriptionElement.textContent =
                 error.message ||
                 "Something went wrong while loading the property.";
+        }
+
+        if (galleryElement) {
+            galleryElement.innerHTML = `
+                <div class="panel">
+                    <p class="muted">
+                        Unable to load property images.
+                    </p>
+                </div>
+            `;
         }
     }
 });
@@ -161,9 +240,11 @@ function formatPropertyType(type) {
         return "N/A";
     }
 
-    return type
+    return String(type)
         .replace(/_/g, " ")
-        .replace(/\b\w/g, char => char.toUpperCase());
+        .replace(/\b\w/g, char =>
+            char.toUpperCase()
+        );
 }
 
 
@@ -176,9 +257,11 @@ function formatFacingDirection(direction) {
         return "N/A";
     }
 
-    return direction
+    return String(direction)
         .replace(/_/g, " ")
-        .replace(/\b\w/g, char => char.toUpperCase());
+        .replace(/\b\w/g, char =>
+            char.toUpperCase()
+        );
 }
 
 
@@ -186,14 +269,26 @@ function formatFacingDirection(direction) {
 // Render Property Images
 // ========================================
 
-function renderPropertyImages(images, galleryElement) {
+function renderPropertyImages(
+    images,
+    galleryElement
+) {
     if (!galleryElement) {
+        console.error(
+            "Property gallery element not found."
+        );
+
         return;
     }
 
+    // Clear old content
     galleryElement.innerHTML = "";
 
-    if (!images.length) {
+    // ========================================
+    // No images
+    // ========================================
+
+    if (!Array.isArray(images) || images.length === 0) {
         galleryElement.innerHTML = `
             <div class="panel">
                 <p class="muted">
@@ -205,22 +300,49 @@ function renderPropertyImages(images, galleryElement) {
         return;
     }
 
+    // ========================================
+    // Create every image
+    // ========================================
+
     images.forEach((image, index) => {
-        const imageUrl = image.image;
+        const imageUrl = image?.image;
 
         if (!imageUrl) {
+            console.warn(
+                `Image ${index + 1} does not have a valid URL.`
+            );
+
             return;
         }
 
-        const wrapper = document.createElement("div");
-        wrapper.className = `gallery-item ${index === 0 ? "gallery-main" : ""}`;
+        // Wrapper
+        const wrapper =
+            document.createElement("div");
 
-        const imageElement = document.createElement("img");
+        wrapper.className = "gallery-item";
+
+        // First image
+        if (index === 0) {
+            wrapper.classList.add("gallery-main");
+        }
+
+        // Image element
+        const imageElement =
+            document.createElement("img");
 
         imageElement.src = imageUrl;
-        imageElement.alt = `Property image ${index + 1}`;
+
+        imageElement.alt =
+            `Property image ${index + 1}`;
+
         imageElement.loading =
             index === 0 ? "eager" : "lazy";
+
+        imageElement.decoding = "async";
+
+        // ========================================
+        // Broken image handling
+        // ========================================
 
         imageElement.onerror = () => {
             console.error(
@@ -229,9 +351,42 @@ function renderPropertyImages(images, galleryElement) {
             );
 
             wrapper.remove();
+
+            updateEmptyGalleryMessage(galleryElement);
         };
 
+        // ========================================
+        // Add to DOM
+        // ========================================
+
         wrapper.appendChild(imageElement);
+
         galleryElement.appendChild(wrapper);
     });
+}
+
+
+// ========================================
+// Empty gallery message
+// ========================================
+
+function updateEmptyGalleryMessage(galleryElement) {
+    if (!galleryElement) {
+        return;
+    }
+
+    const visibleImages =
+        galleryElement.querySelectorAll(
+            ".gallery-item"
+        );
+
+    if (visibleImages.length === 0) {
+        galleryElement.innerHTML = `
+            <div class="panel">
+                <p class="muted">
+                    No property images available.
+                </p>
+            </div>
+        `;
+    }
 }
