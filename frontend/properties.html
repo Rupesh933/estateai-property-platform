@@ -28,13 +28,26 @@
           </div>
 
           <!-- Logged-in user area -->
-          <div id="user-actions" style="display: none">
-            <span id="user-name"></span>
+          <div id="user-actions" class="user-menu" style="display: none">
+            <div class="user-info">
+              <span id="user-avatar" class="avatar">RR</span>
+
+              <div class="user-details">
+                <small>Welcome back</small>
+                <span id="user-name">Rupesh Rana</span>
+              </div>
+            </div>
+
             <button id="logoutBtn" class="btn btn-outline" type="button">
               Logout
             </button>
           </div>
-          <button class="menu-toggle" aria-label="Menu">☰</button>
+          <button
+            class="menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            type="button"
+          >☰</button>
         </div>
       </div>
     </header>

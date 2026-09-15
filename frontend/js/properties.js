@@ -1,5 +1,6 @@
 async function loadCurrentUser() {
 
+
     const accessToken = localStorage.getItem("access_token");
 
     const guestActions = document.getElementById("guest-actions");
@@ -97,18 +98,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoutButton =
         document.getElementById("logoutBtn");
 
-
     if (logoutButton) {
-
         logoutButton.addEventListener(
             "click",
             logoutUser
         );
-
     }
 
+    // Mobile menu toggle
+    const menuToggle =
+        document.querySelector(".menu-toggle");
 
-    // Existing property listing aur filter code
-    // yahin rahega
+    const navLinks =
+        document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener("click", () => {
+
+            navLinks.classList.toggle("menu-open");
+
+            const isOpen =
+                navLinks.classList.contains("menu-open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+        });
+
+    }
 
 });
