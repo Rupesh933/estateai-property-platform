@@ -19,6 +19,7 @@ class PropertyListSerializer(serializers.ModelSerializer):
             'property_type',
             'listing_type',
             'price',
+            'area_sqft',
             'city',
             'bedrooms',
             'bathrooms',

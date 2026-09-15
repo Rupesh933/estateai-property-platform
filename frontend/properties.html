@@ -99,7 +99,7 @@
           <div class="filter-item">
             <label>Max budget</label
             ><select id="filterMax">
-              <option value="999999999">Any</option>
+              <option value="">Any</option>
               <option value="10000000">₹1Cr</option>
               <option value="15000000">₹1.5Cr</option>
               <option value="20000000">₹2Cr</option>
@@ -112,7 +112,7 @@
               document.querySelector('#filterType').value = '';
               document.querySelector('#filterLocation').value = '';
               document.querySelector('#filterMin').value = '0';
-              document.querySelector('#filterMax').value = '999999999';
+              document.querySelector('#filterMax').value = '';
               document
                 .querySelectorAll('.filters select,.filters input')
                 .forEach((x) => x.dispatchEvent(new Event('input')));
