@@ -163,13 +163,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 const selectedImages =
                     imageInput?.files || [];
 
+
                 if (selectedImages.length > 0) {
 
                     const formData = new FormData();
 
                     for (const image of selectedImages) {
+
                         formData.append("images", image);
+
                     }
+
 
                     try {
 
@@ -183,10 +187,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         );
 
+
                         showMessage(
                             "Property and images created successfully!",
                             "success"
                         );
+
 
                     } catch (imageError) {
 
@@ -202,6 +208,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                 }
+
+
+                // Image upload ke baad form reset karo
+                form.reset();
+
+                document.getElementById(
+                    "is_available"
+                ).checked = true;
+
 
                 setTimeout(() => {
 
