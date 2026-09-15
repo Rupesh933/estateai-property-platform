@@ -85,6 +85,7 @@ class PropertyCreateUpdateSerializer(serializers.ModelSerializer):
         model = Property
         fields = [
             "title",
+            "slug",
             "description",
             "property_type",
             "listing_type",
