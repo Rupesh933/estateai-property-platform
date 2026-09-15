@@ -51,9 +51,25 @@ async function apiRequest(endpoint, options = {}) {
 
     if (!response.ok) {
 
+        const validationErrors = data &&
+            typeof data === "object" &&
+            !data.detail &&
+            !data.error
+            ? Object.entries(data)
+                .map(([field, messages]) => {
+                    const text = Array.isArray(messages)
+                        ? messages.join(", ")
+                        : String(messages);
+
+                    return `${field}: ${text}`;
+                })
+                .join("; ")
+            : "";
+
         throw new Error(
             data?.detail ||
             data?.error ||
+            validationErrors ||
             "API request failed"
         );
 

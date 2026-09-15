@@ -82,37 +82,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const isAvailable = document.getElementById("is_available").checked;
 
 
-        const propertyData = {
+        const formData = new FormData();
 
-            title: title,
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("property_type", propertyType);
+        formData.append("listing_type", listingType);
+        formData.append("price", price);
+        formData.append("area_sqft", areaSqft);
+        formData.append("parking_spaces", parkingSpaces || "0");
+        formData.append("bedrooms", bedrooms || "0");
+        formData.append("bathrooms", bathrooms || "0");
+        formData.append("facing_direction", facingDirection);
+        if (yearBuilt) {
+            formData.append("year_built", yearBuilt);
+        }
+        formData.append("city", city);
+        formData.append("address", address);
+        formData.append("is_available", isAvailable ? "true" : "false");
 
-            description: description,
+        const imageInput = document.getElementById("property-images");
 
-            property_type: propertyType,
-
-            listing_type: listingType,
-
-            price: price,
-
-            area_sqft: Number(areaSqft),
-
-            parking_spaces: Number(parkingSpaces || 0),
-
-            bedrooms: Number(bedrooms || 0),
-
-            bathrooms: Number(bathrooms || 0),
-
-            facing_direction: facingDirection,
-
-            year_built: yearBuilt ? Number(yearBuilt) : null,
-
-            city: city,
-
-            address: address,
-
-            is_available: isAvailable
-
-        };
+        for (const image of imageInput?.files || []) {
+            formData.append("images", image);
+        }
 
 
         try {
@@ -127,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "/properties/create/",
                 {
                     method: "POST",
-                    body: JSON.stringify(propertyData)
+                    body: formData
                 }
             );
 
@@ -138,79 +131,17 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-            showMessage(
-                "Property created successfully!",
-                "success"
-            );
-
-
-            form.reset();
-
-            document.getElementById(
-                "is_available"
-            ).checked = true;
-
-
             /*
              * Backend create response mein slug milne ke baad
              * property detail page par redirect kar sakte hain.
              */
             if (createdProperty?.slug) {
 
-                const imageInput =
-                    document.getElementById("property-images");
+                showMessage(
+                    "Property and images created successfully!",
+                    "success"
+                );
 
-                const selectedImages =
-                    imageInput?.files || [];
-
-
-                if (selectedImages.length > 0) {
-
-                    const formData = new FormData();
-
-                    for (const image of selectedImages) {
-
-                        formData.append("images", image);
-
-                    }
-
-
-                    try {
-
-                        await apiRequest(
-                            `/properties/${encodeURIComponent(
-                                createdProperty.slug
-                            )}/upload-image/`,
-                            {
-                                method: "POST",
-                                body: formData
-                            }
-                        );
-
-
-                        showMessage(
-                            "Property and images created successfully!",
-                            "success"
-                        );
-
-
-                    } catch (imageError) {
-
-                        console.error(
-                            "Image upload error:",
-                            imageError
-                        );
-
-                        showMessage(
-                            "Property created, but image upload failed."
-                        );
-
-                    }
-
-                }
-
-
-                // Image upload ke baad form reset karo
                 form.reset();
 
                 document.getElementById(

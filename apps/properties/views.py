@@ -3,8 +3,9 @@ from django.core.exceptions import PermissionDenied
 
 from rest_framework import generics, permissions, status
 from rest_framework.views import APIView
-from rest_framework.parsers import FormParser, MultiPartParser
+from rest_framework.parsers import FormParser, JSONParser, MultiPartParser
 from rest_framework.response import Response
+from django.db import transaction
 
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
@@ -41,10 +42,16 @@ class PropertyCreateView(generics.CreateAPIView):
     queryset = Property.objects.all()
     serializer_class = PropertyCreateUpdateSerializer
     permission_classes = [permissions.IsAuthenticated]  # Only authenticated users can create properties
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
 
+    @transaction.atomic
     def perform_create(self, serializer):
         # Automatically set the owner of the property to the currently logged-in user
-        serializer.save(owner=self.request.user)
+        property_obj = serializer.save(owner=self.request.user)
+
+        images = self.request.FILES.getlist("images") or self.request.FILES.getlist("image")
+        for image in images:
+            PropertyImage.objects.create(property=property_obj, image=image)
 
 class PropertyUpdateView(generics.UpdateAPIView):
     """
