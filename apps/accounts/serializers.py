@@ -41,5 +41,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "email",
             "first_name",
             "last_name",
+            "mobile_number",
         )
-        read_only_fields = ("id", "email",)
+        read_only_fields = ("id", "email", "mobile_number")

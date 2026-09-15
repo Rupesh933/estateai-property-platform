@@ -20,8 +20,20 @@
           ><a href="my-visits.html">My Visits</a>
         </nav>
         <div class="nav-actions">
-          <a class="btn btn-outline" href="login.html">Sign in</a>
-          <a class="btn btn-dark" href="register.html">Get started</a>
+          <!-- Logged-out button -->
+          <div id="guest-actions">
+            <a class="btn btn-outline" href="login.html"> Sign in </a>
+
+            <a class="btn btn-dark" href="register.html"> Get started </a>
+          </div>
+
+          <!-- Logged-in user area -->
+          <div id="user-actions" style="display: none">
+            <span id="user-name"></span>
+            <button id="logoutBtn" class="btn btn-outline" type="button">
+              Logout
+            </button>
+          </div>
           <button class="menu-toggle" aria-label="Menu">☰</button>
         </div>
       </div>
@@ -106,17 +118,16 @@
         >
           <strong id="resultCount"></strong>
           <select id="sortBy">
-          <option value="">Sorted by relevance</option>
-          <option value="price">Price: Low to High</option>
-          <option value="-price">Price: High to Low</option>
-          <option value="-created_at">Newest</option>
-          <option value="area_sqft">Area: Small to Large</option>
-          <option value="-area_sqft">Area: Large to Small</option>
-      </select>
+            <option value="">Sorted by relevance</option>
+            <option value="price">Price: Low to High</option>
+            <option value="-price">Price: High to Low</option>
+            <option value="-created_at">Newest</option>
+            <option value="area_sqft">Area: Small to Large</option>
+            <option value="-area_sqft">Area: Large to Small</option>
+          </select>
         </div>
 
         <div class="property-grid" data-properties></div>
-        
       </div>
     </main>
 
