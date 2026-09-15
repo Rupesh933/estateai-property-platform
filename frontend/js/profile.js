@@ -15,7 +15,8 @@ async function loadCurrentUser() {
         if (!accessToken) {
 
             if (errorMessage) {
-                errorMessage.textContent = "Please login first.";
+                errorMessage.textContent =
+                    "Please login first.";
             }
 
             setTimeout(() => {
@@ -71,7 +72,5 @@ async function loadCurrentUser() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.addEventListener("DOMContentLoaded", () => {
-        loadCurrentUser();
-    });
+    loadCurrentUser();
 });
